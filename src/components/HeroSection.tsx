@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, HeartPulse, TrendingUp } from "lucide-react";
 
@@ -40,17 +41,20 @@ const HeroSection = () => {
 
         {/* Diagrama de Fluxo */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">
-          {flowSteps.map((step, index) => (
-            <React.Fragment key={index}>
-              <div className="flex items-center gap-3 rounded-lg border bg-muted/50 p-3 text-sm font-medium text-muted-foreground">
-                <step.icon className="w-5 h-5 text-primary" />
-                <span>{step.label}</span>
-              </div>
-              {index < flowSteps.length - 1 && (
-                <ArrowRight className="w-6 h-6 text-border hidden md:block" />
-              )}
-            </React.Fragment>
-          ))}
+          {flowSteps.map((step, index) => {
+            const Icon = step.icon; // Renomeia para uma variável com letra maiúscula
+            return (
+              <React.Fragment key={index}>
+                <div className="flex items-center gap-3 rounded-lg border bg-muted/50 p-3 text-sm font-medium text-muted-foreground">
+                  <Icon className="w-5 h-5 text-primary" />
+                  <span>{step.label}</span>
+                </div>
+                {index < flowSteps.length - 1 && (
+                  <ArrowRight className="w-6 h-6 text-border hidden md:block" />
+                )}
+              </React.Fragment>
+            );
+          })}
         </div>
 
         {/* Botão de Chamada para Ação (CTA) */}
