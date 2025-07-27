@@ -6,37 +6,37 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
+    <header className="fixed top-0 w-full bg-brand-navy z-50 shadow-md">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <a href="#" className="flex items-center space-x-2">
             <img 
-              src="/assets/conciarge-logo.png" 
+              src="/logolateral.png" 
               alt="Conciarge" 
-              className="h-8 w-auto"
+              className="h-10 w-auto brightness-0 invert"
             />
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#solucao" className="text-foreground hover:text-primary transition-colors">
+            <a href="#solucao" className="text-white/90 hover:text-white transition-colors font-medium">
               Solução
             </a>
-            <a href="#recursos" className="text-foreground hover:text-primary transition-colors">
+            <a href="#recursos" className="text-white/90 hover:text-white transition-colors font-medium">
               Recursos
             </a>
-            <a href="#planos" className="text-foreground hover:text-primary transition-colors">
+            <a href="#planos" className="text-white/90 hover:text-white transition-colors font-medium">
               Planos
             </a>
-            <a href="#faq" className="text-foreground hover:text-primary transition-colors">
+            <a href="#faq" className="text-white/90 hover:text-white transition-colors font-medium">
               FAQ
             </a>
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button variant="hero" size="sm">
+            <Button variant="outline" className="bg-white text-primary hover:bg-white/90 hover:text-primary border-white">
               Demonstração Gratuita
             </Button>
           </div>
@@ -47,49 +47,49 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-controls="mobile-menu"
             aria-expanded={isMenuOpen}
-            aria-label="Abrir menu"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border" id="mobile-menu">
+          <div className="md:hidden border-t border-white/20" id="mobile-menu">
             <nav className="flex flex-col space-y-4 p-4">
               <a 
                 href="#solucao" 
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-white/90 hover:text-white transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Solução
               </a>
               <a 
                 href="#recursos" 
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-white/90 hover:text-white transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Recursos
               </a>
               <a 
                 href="#planos" 
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-white/90 hover:text-white transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Planos
               </a>
               <a 
                 href="#faq" 
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-white/90 hover:text-white transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
               </a>
-              <Button variant="hero" size="sm" className="w-fit">
+              <Button variant="outline" className="w-fit bg-white text-primary hover:bg-white/90 hover:text-primary mt-2 border-white">
                 Demonstração Gratuita
               </Button>
             </nav>
