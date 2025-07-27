@@ -8,28 +8,28 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <a href="#" className="flex items-center space-x-2">
             <img 
-              src="/assets/conciarge-logo.png" 
+              src="/lovable-uploads/LOGOLATERAL.CONCIARGE.png" 
               alt="Conciarge" 
-              className="h-8 w-auto"
+              className="h-9 w-auto" // Ajustado para h-9 para melhor proporção
             />
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#solucao" className="text-foreground hover:text-primary transition-colors">
+            <a href="#solucao" className="text-foreground hover:text-primary transition-colors font-medium">
               Solução
             </a>
-            <a href="#recursos" className="text-foreground hover:text-primary transition-colors">
+            <a href="#recursos" className="text-foreground hover:text-primary transition-colors font-medium">
               Recursos
             </a>
-            <a href="#planos" className="text-foreground hover:text-primary transition-colors">
+            <a href="#planos" className="text-foreground hover:text-primary transition-colors font-medium">
               Planos
             </a>
-            <a href="#faq" className="text-foreground hover:text-primary transition-colors">
+            <a href="#faq" className="text-foreground hover:text-primary transition-colors font-medium">
               FAQ
             </a>
           </nav>
@@ -47,7 +47,7 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-controls="mobile-menu"
             aria-expanded={isMenuOpen}
-            aria-label="Abrir menu"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
             {isMenuOpen ? (
               <X className="w-6 h-6 text-foreground" />
@@ -89,7 +89,7 @@ const Header = () => {
               >
                 FAQ
               </a>
-              <Button variant="hero" size="sm" className="w-fit">
+              <Button variant="hero" size="sm" className="w-fit mt-2">
                 Demonstração Gratuita
               </Button>
             </nav>
