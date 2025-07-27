@@ -74,14 +74,14 @@ const FinalCTASection = () => {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/20 pt-12">
             <div className="text-center">
               <div className="text-3xl font-bold mb-2">500+</div>
-              <div className="text-sm opacity-80">Clínicas atendidas</div>
+              <div className="text-sm opacity-80">Usuários</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold mb-2">95%</div>
               <div className="text-sm opacity-80">Taxa de satisfação</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold mb-2">24h</div>
+              <div className="text-3xl font-bold mb-2">1 semana</div>
               <div className="text-sm opacity-80">Para implementação</div>
             </div>
           </div>

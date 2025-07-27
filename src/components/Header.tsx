@@ -8,13 +8,13 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full bg-brand-navy z-50 shadow-md">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24"> {/* Altura aumentada para h-24 */}
           {/* Logo */}
           <a href="#" className="flex items-center space-x-2">
             <img 
               src="/logolateral.png" 
               alt="Conciarge" 
-              className="h-10 w-auto brightness-0 invert"
+              className="h-14 w-auto brightness-0 invert" // Altura do logo aumentada para h-14
             />
           </a>
 
