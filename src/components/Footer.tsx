@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <img 
-              src="/assets/conciarge-logo.png" 
+              src="/lovable-uploads/LOGOLATERAL.CONCIARGE.png" 
               alt="Conciarge" 
               className="h-10 w-auto mb-4 brightness-0 invert"
             />
