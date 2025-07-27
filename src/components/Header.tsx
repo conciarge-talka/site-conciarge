@@ -12,7 +12,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/52c7f5cc-42b6-4a15-9203-7043f7719b35.png" 
+              src="/assets/conciarge-logo.png" 
               alt="Conciarge" 
               className="h-8 w-auto"
             />
@@ -45,6 +45,9 @@ const Header = () => {
           <button 
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-controls="mobile-menu"
+            aria-expanded={isMenuOpen}
+            aria-label="Abrir menu"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6 text-foreground" />
@@ -56,7 +59,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border">
+          <div className="md:hidden border-t border-border" id="mobile-menu">
             <nav className="flex flex-col space-y-4 p-4">
               <a 
                 href="#solucao" 

@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
 
-## Project info
+# Bem-vindo ao projeto Conciarge
 
-**URL**: https://lovable.dev/projects/e7af88b4-8e90-44ff-a917-6e5c028ec158
+Este repositório contém o código-fonte da landing page do Conciarge.
 
-## How can I edit this code?
+## Como editar este código?
 
-There are several ways of editing your application.
+Existem várias maneiras de editar a aplicação.
 
-**Use Lovable**
+### Use seu IDE preferido
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e7af88b4-8e90-44ff-a917-6e5c028ec158) and start prompting.
+Se você quer trabalhar localmente usando seu próprio editor de código, você pode clonar este repositório e enviar suas alterações. O único requisito é ter o Node.js e o npm instalados.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Siga estes passos:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Passo 1: Clone o repositório usando a URL do Git.
+git clone <URL_DO_SEU_REPOSITORIO_GIT>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Passo 2: Navegue até a pasta do projeto.
+cd <NOME_DA_PASTA_DO_PROJETO>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Passo 3: Instale as dependências necessárias.
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Passo 4: Inicie o servidor de desenvolvimento.
 npm run dev
-```
+Edite um arquivo diretamente no GitHub
+Navegue até o arquivo desejado.
 
-**Edit a file directly in GitHub**
+Clique no botão "Edit" (ícone de lápis) no canto superior direito da visualização do arquivo.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Faça suas alterações e confirme (commit).
 
-**Use GitHub Codespaces**
+Use o GitHub Codespaces
+Navegue até a página principal do seu repositório.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Clique no botão verde "Code".
 
-## What technologies are used for this project?
+Selecione a aba "Codespaces".
 
-This project is built with:
+Clique em "New codespace" para iniciar um novo ambiente de desenvolvimento online.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Edite os arquivos diretamente no Codespace, salve e envie suas alterações.
 
-## How can I deploy this project?
+Tecnologias utilizadas neste projeto
+Este projeto foi construído com:
 
-Simply open [Lovable](https://lovable.dev/projects/e7af88b4-8e90-44ff-a917-6e5c028ec158) and click on Share -> Publish.
+Vite
 
-## Can I connect a custom domain to my Lovable project?
+TypeScript
 
-Yes, you can!
+React
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+shadcn-ui
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Tailwind CSS
+
+Como posso fazer o deploy deste projeto?
+Para fazer o deploy (publicar) do seu site, você primeiro precisa gerar a versão de produção do código.
+
+Build do Projeto: Rode o comando abaixo no seu terminal:
+
+Bash
+
+npm run build
+Isso criará uma pasta dist com todos os arquivos otimizados do seu site.
+
+Publicação: Você pode hospedar o conteúdo da pasta dist em diversas plataformas, como:
+
+Vercel: Conecte seu repositório do GitHub e ele fará o deploy automaticamente.
+
+Netlify: Funciona de forma similar à Vercel, com integração contínua.
+
+GitHub Pages: Uma opção gratuita para hospedar sites estáticos diretamente do seu repositório.
+
+Posso conectar um domínio personalizado?
+Sim! A maioria das plataformas de hospedagem (como Vercel e Netlify) oferece uma maneira fácil de conectar seu próprio domínio. Geralmente, o processo envolve adicionar algumas configurações de DNS no painel do seu provedor de domínio.
+
+
+### Como Implementar
+
+1.  **Abra o arquivo:** Localize o arquivo `README.md` na pasta raiz do seu projeto.
+2.  **Substitua o conteúdo:** Apague todo o texto do arquivo e cole a nova versão que forneci.
+3.  **Salve** o arquivo.

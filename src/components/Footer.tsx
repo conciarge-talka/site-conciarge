@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <img 
-              src="/lovable-uploads/52c7f5cc-42b6-4a15-9203-7043f7719b35.png" 
+              src="/assets/conciarge-logo.png" 
               alt="Conciarge" 
               className="h-10 w-auto mb-4 brightness-0 invert"
             />
@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>+55 (11) 99999-9999</span>
+                <span>+55 (81) 99108-5679</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
@@ -37,11 +37,11 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Soluções</h3>
             <ul className="space-y-2 text-white/80 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Agente Concierge</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Agente de Qualificação</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Agendamento Automático</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Follow-Up Personalizado</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">CRM Integrado</a></li>
+              <li><a href="#solucao" className="hover:text-white transition-colors">Agente Concierge</a></li>
+              <li><a href="#solucao" className="hover:text-white transition-colors">Agente de Qualificação</a></li>
+              <li><a href="#solucao" className="hover:text-white transition-colors">Agendamento Automático</a></li>
+              <li><a href="#solucao" className="hover:text-white transition-colors">Follow-Up Personalizado</a></li>
+              <li><a href="#recursos" className="hover:text-white transition-colors">CRM Integrado</a></li>
             </ul>
           </div>
 

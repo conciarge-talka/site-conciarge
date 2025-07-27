@@ -1,82 +1,67 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, MessageSquare, Calendar, TrendingUp } from "lucide-react";
+import { ArrowRight, Users, HeartPulse, TrendingUp } from "lucide-react";
 
 const HeroSection = () => {
+  const flowSteps = [
+    {
+      icon: Users,
+      label: "Volume Alto de Leads",
+    },
+    {
+      icon: HeartPulse,
+      label: "Capacidade de Atendimento",
+    },
+    {
+      icon: TrendingUp,
+      label: "Conversão em Vendas",
+    },
+  ];
+
   return (
-    <section className="relative min-h-screen bg-gradient-hero flex items-center justify-center overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-white rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-white rounded-full animate-pulse delay-300"></div>
-        <div className="absolute bottom-32 left-1/3 w-16 h-16 bg-white rounded-full animate-pulse delay-700"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Sua clínica transforma{" "}
-            <span className="text-yellow-300">todos os leads</span>{" "}
-            em pacientes?
+    <section className="bg-background pt-32 pb-20 text-center">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          {/* Título Principal */}
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-brand-navy">
+            A plataforma de inteligência comercial que{" "}
+            <span className="text-primary">
+              transforma sua clínica em uma máquina de resultados
+            </span>
           </h1>
-          
-          <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
-            Sua clínica recebe muitos leads, mas a capacidade de atendimento limita a conversão em vendas? 
-            O <strong>Conciarge</strong> é a plataforma de inteligência que resolve essa equação, 
-            automatizando o atendimento para transformar um alto volume de interessados em pacientes agendados.
+
+          {/* Subtítulo */}
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+            Unifique agendamentos, marketing e vendas em um só lugar. O
+            Conciarge é o sistema com IA que automatiza processos, qualifica
+            pacientes e te dá o controle total da sua operação para escalar com
+            segurança.
           </p>
+        </div>
 
-          {/* Lead Flow Animation */}
-          <div className="my-12 flex items-center justify-center space-x-4 md:space-x-8">
-            <div className="flex flex-col items-center space-y-2">
-              <div className="bg-white/20 p-4 rounded-full">
-                <Users className="w-8 h-8" />
+        {/* Diagrama de Fluxo */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">
+          {flowSteps.map((step, index) => (
+            <React.Fragment key={index}>
+              <div className="flex items-center gap-3 rounded-lg border bg-muted/50 p-3 text-sm font-medium text-muted-foreground">
+                <step.icon className="w-5 h-5 text-primary" />
+                <span>{step.label}</span>
               </div>
-              <span className="text-sm">Muitos Leads</span>
-            </div>
-            
-            <ArrowRight className="w-6 h-6 animate-pulse" />
-            
-            <div className="flex flex-col items-center space-y-2">
-              <div className="bg-yellow-300 p-4 rounded-full">
-                <MessageSquare className="w-8 h-8 text-brand-navy" />
-              </div>
-              <span className="text-sm">Conciarge IA</span>
-            </div>
-            
-            <ArrowRight className="w-6 h-6 animate-pulse" />
-            
-            <div className="flex flex-col items-center space-y-2">
-              <div className="bg-white/20 p-4 rounded-full">
-                <Calendar className="w-8 h-8" />
-              </div>
-              <span className="text-sm">Agendamentos</span>
-            </div>
-          </div>
+              {index < flowSteps.length - 1 && (
+                <ArrowRight className="w-6 h-6 text-border hidden md:block" />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
 
-          <Button 
-            variant="hero" 
-            size="lg" 
-            className="text-lg px-8 py-4 shadow-hero"
-          >
+        {/* Botão de Chamada para Ação (CTA) */}
+        <div className="space-y-4">
+          <Button variant="hero" size="lg" className="text-lg px-8 py-4 shadow-hero">
             AGENDAR DEMONSTRAÇÃO ESTRATÉGICA
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
-
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold mb-2">300%</div>
-              <div className="text-sm opacity-80">Aumento na conversão</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold mb-2">24/7</div>
-              <div className="text-sm opacity-80">Atendimento automático</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold mb-2">100%</div>
-              <div className="text-sm opacity-80">Leads atendidos</div>
-            </div>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            Descubra o real retorno sobre seu investimento em marketing.
+          </p>
         </div>
       </div>
     </section>
