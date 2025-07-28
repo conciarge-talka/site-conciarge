@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, BadgeInfo } from "lucide-react"; // Adicionado BadgeInfo
 
 const Footer = () => {
   return (
@@ -29,6 +29,11 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
                 <span>Av. Eng. Domingos Ferreira, 4023 - Sl 1004 - Recife, PE</span>
+              </div>
+              {/* LINHA DO CNPJ ADICIONADA AQUI */}
+              <div className="flex items-center space-x-2">
+                <BadgeInfo className="w-4 h-4" />
+                <span>CNPJ: 61.378.806/0001-02</span>
               </div>
             </div>
           </div>
