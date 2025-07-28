@@ -28,7 +28,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
-                <span>São Paulo, SP - Brasil</span>
+                <span>Av. Eng. Domingos Ferreira, 4023 - Sl 1004 - Recife, PE</span>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
           <div className="mb-4 md:mb-0">
-            © 2024 Conciarge. Todos os direitos reservados.
+            © 2025 Conciarge. Todos os direitos reservados.
           </div>
           <div className="flex space-x-6">
             <a href="#" className="hover:text-white transition-colors">Política de Privacidade</a>
