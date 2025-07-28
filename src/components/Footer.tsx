@@ -17,9 +17,6 @@ const Footer = () => {
               A plataforma de inteligência que transforma leads em pacientes agendados, 
               automatizando o atendimento para clínicas e profissionais de saúde.
             </p>
-                <CNPJ className="w-4 h-4" />
-                <span>CNPJ: 61.378.806/0001-02</span>
-              </div>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
