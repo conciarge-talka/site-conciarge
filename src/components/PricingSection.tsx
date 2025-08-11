@@ -13,7 +13,12 @@ const PricingSection = () => {
   const plans = [
     {
       name: "CLÍNICA ESSENCIAL",
-      basePrices: { monthly: 799, quarterly: 599 * 3 + 100, semiannually: 599 * 6 + 50, annually: 599 },
+      basePrices: {
+        monthly: 799,
+        quarterly: 1977,
+        semiannually: 3894,
+        annually: 7188
+      },
       description: "Ideal para organizar o atendimento e centralizar a comunicação.",
       isPopular: false,
       features: [
@@ -30,7 +35,12 @@ const PricingSection = () => {
     },
     {
       name: "CLÍNICA AVANÇADA",
-      basePrices: { monthly: 1197, quarterly: 987 * 3 + 100, semiannually: 987 * 6 + 50, annually: 987 },
+      basePrices: {
+        monthly: 1197,
+        quarterly: 3405,
+        semiannually: 6210,
+        annually: 11844
+      },
       description: "Para clínicas que buscam a máxima automação, redução de no-show e escala.",
       isPopular: true,
       features: [
