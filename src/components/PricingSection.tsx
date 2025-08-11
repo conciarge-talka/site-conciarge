@@ -17,13 +17,13 @@ const PricingSection = () => {
       description: "Ideal para organizar o atendimento e centralizar a comunicação.",
       isPopular: false,
       features: [
-        <span key="concierge" className="line-through">Agente Concierge</span>,
-        <span key="qualificacao" className="line-through">Agente de Qualificação</span>,
+        <span key="concierge" className="line-through">Agente IA Concierge (SDR)</span>,
+        <span key="qualificacao" className="line-through">Agente IA de Qualificação</span>,
         <span key="ia" className="line-through">IA Conversacional Avançada</span>,
-        "Multi Canais",
+        "Chatbot Multi Canais (Whatsapp, Instagram e Site)",
         "Automações Personalizadas",
         "CRM Integrado para Vendas",
-        "Integrações com Sistemas"
+        "Integrações com Sistemas de Agendamento"
       ],
       buttonText: "CONTRATAR PLANO ESSENCIAL",
       buttonVariant: "outline-hero" as const
@@ -34,8 +34,8 @@ const PricingSection = () => {
       description: "Para clínicas que buscam a máxima automação, redução de no-show e escala.",
       isPopular: true,
       features: [
-        "Agente Concierge",
-        "Agente de Qualificação",
+        "Agente IA Concierge (SDR)",
+        "Agente IA de Qualificação",
         "IA Conversacional Avançada",
         "Tudo do plano Essencial, e mais:",
         "Módulo de Agendamento 100% Automático",
