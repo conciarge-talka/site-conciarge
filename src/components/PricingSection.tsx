@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check, Star, ArrowRight, Bot, PhoneCall } from "lucide-react";
 
-// Tipagem para os planos de cobrança
 type BillingCycle = "monthly" | "quarterly" | "semiannually" | "annually";
 
 const PricingSection = () => {
@@ -14,13 +13,13 @@ const PricingSection = () => {
   const plans = [
     {
       name: "CLÍNICA ESSENCIAL",
-      basePrice: 687,
+      basePrices: { monthly: 799, quarterly: 599 * 3 + 100, semiannually: 599 * 6 + 50, annually: 599 },
       description: "Ideal para organizar o atendimento e centralizar a comunicação.",
       isPopular: false,
       features: [
-        "Agente Concierge",
-        "Agente de Qualificação",
-        "IA Conversacional Avançada",
+        <span key="concierge" className="line-through">Agente Concierge</span>,
+        <span key="qualificacao" className="line-through">Agente de Qualificação</span>,
+        <span key="ia" className="line-through">IA Conversacional Avançada</span>,
         "Multi Canais",
         "Automações Personalizadas",
         "CRM Integrado para Vendas",
@@ -31,10 +30,13 @@ const PricingSection = () => {
     },
     {
       name: "CLÍNICA AVANÇADA",
-      basePrice: 987,
+      basePrices: { monthly: 1197, quarterly: 987 * 3 + 100, semiannually: 987 * 6 + 50, annually: 987 },
       description: "Para clínicas que buscam a máxima automação, redução de no-show e escala.",
       isPopular: true,
       features: [
+        "Agente Concierge",
+        "Agente de Qualificação",
+        "IA Conversacional Avançada",
         "Tudo do plano Essencial, e mais:",
         "Módulo de Agendamento 100% Automático",
         "Módulo de Follow-Up (FUP) Personalizado",
@@ -51,18 +53,17 @@ const PricingSection = () => {
   ];
 
   const billingOptions = {
-    monthly: { label: "Mensal", discount: 0, months: 1, saveLabel: "" },
-    quarterly: { label: "Trimestral", discount: 0.05, months: 3, saveLabel: "Economize 5%" },
-    semiannually: { label: "Semestral", discount: 0.10, months: 6, saveLabel: "Economize 10%" },
-    annually: { label: "Anual", discount: 0.20, months: 12, saveLabel: "Economize 20%" },
+    monthly: { label: "Mensal", months: 1 },
+    quarterly: { label: "Trimestral", months: 3 },
+    semiannually: { label: "Semestral", months: 6 },
+    annually: { label: "Anual", months: 12 },
   };
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat("pt-BR", {
+  const formatCurrency = (value: number) =>
+    new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
     }).format(value);
-  };
 
   return (
     <section className="py-20 bg-muted/30">
@@ -75,7 +76,7 @@ const PricingSection = () => {
             Comece a organizar sua operação hoje e escale quando estiver pronto.
           </p>
         </div>
-        
+
         <div className="flex justify-center mb-12">
           <Tabs value={billingCycle} onValueChange={(value) => setBillingCycle(value as BillingCycle)} className="w-auto">
             <TabsList className="grid w-full grid-cols-4">
@@ -90,9 +91,8 @@ const PricingSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
           {plans.map((plan) => {
             const currentOption = billingOptions[billingCycle];
-            const totalDiscounted = plan.basePrice * currentOption.months * (1 - currentOption.discount);
-            const monthlyPrice = totalDiscounted / currentOption.months;
-            const upfrontPrice = totalDiscounted * 0.95; // 5% de desconto à vista
+            const monthlyPrice = plan.basePrices[billingCycle] / currentOption.months;
+            const upfrontPrice = plan.basePrices[billingCycle] * 0.95;
 
             return (
               <Card
@@ -109,7 +109,7 @@ const PricingSection = () => {
                     </Badge>
                   </div>
                 )}
-                
+
                 <CardHeader className="text-center pb-8 pt-8">
                   <CardTitle className="text-2xl font-bold mb-2 h-14 flex items-center justify-center">{plan.name}</CardTitle>
                   <p className="text-muted-foreground h-12">{plan.description}</p>
@@ -117,9 +117,6 @@ const PricingSection = () => {
 
                 <CardContent className="pt-0 flex flex-col flex-grow">
                   <div className="text-center mb-6">
-                    {currentOption.saveLabel && (
-                        <Badge variant="destructive" className="mb-2 bg-yellow-400 text-yellow-900">{currentOption.saveLabel}</Badge>
-                    )}
                     <div>
                       <span className="text-4xl md:text-5xl font-bold text-primary">
                         {formatCurrency(monthlyPrice)}
@@ -127,22 +124,22 @@ const PricingSection = () => {
                       <span className="text-muted-foreground text-lg">/mês</span>
                     </div>
                     {billingCycle !== 'monthly' && (
-                        <p className="text-sm text-muted-foreground mt-2">
-                            Total de {formatCurrency(totalDiscounted)} no plano {currentOption.label.toLowerCase()}
-                        </p>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Total de {formatCurrency(plan.basePrices[billingCycle])} no plano {currentOption.label.toLowerCase()}
+                      </p>
                     )}
                     <p className="text-sm text-green-600 font-semibold mt-2">
                       ou {formatCurrency(upfrontPrice)} à vista com +5% de desconto
                     </p>
                   </div>
-                  
+
                   <ul className="space-y-4 mb-8">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start space-x-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                         <span className={`text-sm ${
-                          plan.specialFeatures?.includes(feature) 
-                            ? 'font-semibold text-primary' 
+                          typeof feature === "string" && plan.specialFeatures?.includes(feature)
+                            ? 'font-semibold text-primary'
                             : 'text-foreground'
                         }`}>
                           {feature}
@@ -152,9 +149,9 @@ const PricingSection = () => {
                   </ul>
 
                   <div className="mt-auto">
-                    <Button 
+                    <Button
                       variant={plan.buttonVariant}
-                      size="lg" 
+                      size="lg"
                       className="w-full font-semibold"
                     >
                       {plan.buttonText}
@@ -166,7 +163,6 @@ const PricingSection = () => {
             );
           })}
 
-          {/* Plano Personalizado */}
           <Card className="flex flex-col shadow-card border-0 bg-gradient-card hover:shadow-lg transition-all duration-300">
             <CardHeader className="text-center pb-8 pt-8">
               <CardTitle className="text-2xl font-bold mb-2 h-14 flex items-center justify-center">PLANO PERSONALIZADO</CardTitle>
@@ -174,27 +170,27 @@ const PricingSection = () => {
             </CardHeader>
             <CardContent className="pt-0 flex flex-col flex-grow">
               <div className="text-center mb-6">
-                 <Bot className="w-12 h-12 text-primary mx-auto mb-4" />
-                 <p className="text-lg font-semibold">Vamos construir juntos?</p>
+                <Bot className="w-12 h-12 text-primary mx-auto mb-4" />
+                <p className="text-lg font-semibold">Vamos construir juntos?</p>
               </div>
 
               <ul className="space-y-4 mb-8">
-                  <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-foreground">Agentes e Módulos customizados</span>
-                  </li>
-                   <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-foreground">Integrações com sistemas legados</span>
-                  </li>
-                   <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-foreground">Volume de contatos enterprise</span>
-                  </li>
-                   <li className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-foreground">Suporte e gerente de contas dedicado</span>
-                  </li>
+                <li className="flex items-start space-x-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-foreground">Agentes e Módulos customizados</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-foreground">Integrações com sistemas legados</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-foreground">Volume de contatos enterprise</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-foreground">Suporte e gerente de contas dedicado</span>
+                </li>
               </ul>
               <div className="mt-auto">
                 <Button variant="hero" size="lg" className="w-full font-semibold">
